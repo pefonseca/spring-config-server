@@ -1,8 +1,18 @@
-server:
-  port: 8888
 spring:
+  port: 8080
   application:
-    name: spring-cloud-config-server
-  profiles:
-    active:
-      - native
+    name: greeting-service
+
+greeting-service:
+  greeting: "Hello"
+  defaultValue: "World"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
